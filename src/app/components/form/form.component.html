@@ -1,0 +1,29 @@
+
+<form [formGroup]="gameGroup" (ngSubmit)="handleSubmit()">
+  <div>
+    <label>Titre</label>
+    <input formControlName="title">
+    <div class="error">
+      {{hasError('title')}}
+    </div>
+  </div>
+  <div>
+    <label>Auteur⋅trice</label>
+    <input formControlName="author">
+    <div class="error">
+      {{hasError('author')}}
+    </div>
+  </div>
+  <div>
+    <label>Image</label>
+    <input formControlName="image">
+    <div class="error">
+      {{hasError('image')}}
+    </div>
+  </div>
+  <div class="check">
+    <label>Terminé ?</label>
+    <input type="checkbox" formControlName="status">
+  </div>
+  <button type="submit">Enregistrer</button>
+</form>

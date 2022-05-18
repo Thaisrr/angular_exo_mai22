@@ -1,19 +1,25 @@
 
 
 <main>
-  <h1>Library</h1>
-  <div class="grid">
+  <h1>My Awesome <span>Library</span></h1>
 
-    <div *ngFor="let game of games" class="card">
-      <div class="c-header">
-        <img [src]="game.image">
-      </div>
-      <div class="c-body">
-        <h3>{{game.title}}</h3>
-        <p>-- {{game.author}}</p>
-      </div>
-    </div>
+  <div class="btn-tab">
+    <button (click)="changeView('ALL')">Tout</button>
+    <button (click)="changeView('FINISHED')">Terminés</button>
+    <button (click)="changeView('NOT')">Pas finis</button>
+    <button [ngClass]="{active : viewForm}" (click)="changeView('form')">Formulaire</button>
+  </div>
+
+
+  <div class="grid" *ngIf="!viewForm; else form">
+
+    <app-card *ngFor="let game of games | gamesFilter: filter"
+              [game]="game"></app-card>
 
   </div>
+
+  <ng-template #form>
+    <app-form (emitValue)="addGame($event)"></app-form>
+  </ng-template>
 
 </main>

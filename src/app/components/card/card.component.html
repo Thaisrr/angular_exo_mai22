@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="c-header">
+    <img [src]="game.image" [alt]="game.title">
+  </div>
+  <div class="c-body">
+    <h3 [ngClass]="{played : game.status}">{{game.title}}</h3>
+    <p>-- {{game.author}}</p>
+    <p style="text-align: center">
+      <button (click)="changeStatus()">
+        {{game.status? 'Pas fini' : 'Fini'}}
+      </button>
+    </p>
+  </div>
+</div>
