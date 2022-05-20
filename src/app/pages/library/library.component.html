@@ -1,0 +1,25 @@
+
+
+<main>
+  <h1>My Awesome <span>Library</span></h1>
+
+  <div class="btn-tab">
+    <button (click)="changeView('ALL')">Tout</button>
+    <button (click)="changeView('FINISHED')">Terminés</button>
+    <button (click)="changeView('NOT')">Pas finis</button>
+    <button [ngClass]="{active : viewForm}" (click)="changeView('form')">Formulaire</button>
+  </div>
+
+
+  <div class="grid" *ngIf="!viewForm; else form">
+
+    <app-card *ngFor="let game of games | gamesFilter: filter"
+              [game]="game" (changeEmit)="getGames()"></app-card>
+
+  </div>
+
+  <ng-template #form>
+    <app-form (emitValue)="getGames()"></app-form>
+  </ng-template>
+
+</main>

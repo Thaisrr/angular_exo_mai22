@@ -7,18 +7,24 @@ import { CardComponent } from './components/card/card.component';
 import { FormComponent } from './components/form/form.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { GamesFilterPipe } from './utils/pipes/games-filter.pipe';
+import {HttpClientModule} from "@angular/common/http";
+import { LibraryComponent } from './pages/library/library.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     FormComponent,
-    GamesFilterPipe
+    GamesFilterPipe,
+    LibraryComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,16 @@
-<div class="card">
+<div [routerLink]="'/details/' + game.id" class="card">
   <div class="c-header">
     <img [src]="game.image" [alt]="game.title">
   </div>
   <div class="c-body">
     <h3 [ngClass]="{played : game.status}">{{game.title}}</h3>
     <p>-- {{game.author}}</p>
-    <p style="text-align: center">
-      <button (click)="changeStatus()">
+    <p style="text-align: center; display: flex; flex-direction: column; gap: 20px">
+      <button (click)="changeStatus($event)">
         {{game.status? 'Pas fini' : 'Fini'}}
+      </button>
+      <button (click)="deleteGame($event)">
+        Supprimer
       </button>
     </p>
   </div>
