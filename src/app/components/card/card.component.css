@@ -47,6 +47,10 @@ button {
   box-shadow: 5px 5px 0 black;
 }
 
+button.primary {
+  background-color: white;
+}
+
 button:hover {
   box-shadow: none;
 }
